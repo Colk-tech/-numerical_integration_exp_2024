@@ -5,6 +5,8 @@
 #ifndef NI_EXP_UTIL_C
 #define NI_EXP_UTIL_C
 
+#include <stdlib.h>
+
 float *calculate_polynomial(float (*func_ptr)(float), float a, float b, int n, float *y) {
     float h = (b - a) / (float) n;
 
@@ -25,6 +27,10 @@ double *calculate_polynomial_double(double (*func_ptr)(double), double a, double
     }
 
     return y;
+}
+
+double random_double(double min, double max) {
+    return min + (double) rand() / RAND_MAX * (max - min);
 }
 
 #endif // NI_EXP_UTIL_C
