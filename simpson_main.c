@@ -45,7 +45,9 @@ void show_result_for_simpson(float (*func_ptr)(float), float a, float b) {
 
         float result = simpsons_rule(y_calculated, n, h);
 
-        printf("n = %d, result = %.8f\n", n, result);
+        float error = fabsf(PI - result);
+
+        printf("n = %d, result = %.8f, error = %.8f\n", n, result, error);
 
         free(y);
     }
@@ -63,7 +65,9 @@ void show_result_for_simpson_3_8(float (*func_ptr)(float), float a, float b) {
 
         float result = simpsons_3_8_rule(y_calculated, n, h);
 
-        printf("n = %d, result = %.8f\n", n, result);
+        float error = fabsf(PI - result);
+
+        printf("n = %d, result = %.8f, error = %.8f\n", n, result, error);
 
         free(y);
     }
