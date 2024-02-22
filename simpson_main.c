@@ -51,6 +51,24 @@ void show_result_for_simpson(float (*func_ptr)(float), float a, float b) {
     }
 }
 
+void show_result_for_simpson_3_8(float (*func_ptr)(float), float a, float b) {
+    for (int i = 0; i < NUMBER_OF_PARTITIONS; i++) {
+        int n = PARTITIONS[i];
+
+        float *y = (float *) malloc(sizeof(float) * n);
+
+        float *y_calculated = calculate_polynomial(func_ptr, a, b, n, y);
+
+        float h = ((float) b - (float) a) / (float) n;
+
+        float result = simpsons_3_8_rule(y_calculated, n, h);
+
+        printf("n = %d, result = %.8f\n", n, result);
+
+        free(y);
+    }
+}
+
 int main() {
     printf("========== 3. Assignment ==========\n");
     printf("(2)\n");
@@ -62,11 +80,11 @@ int main() {
 
     printf("\n");
     printf("(10)\n");
-    show_result_for_simpson(function_of_assignment_10, 0.0f, 2.0f);
+    show_result_for_simpson_3_8(function_of_assignment_10, 0.0f, 2.0f);
 
     printf("\n");
     printf("(11)\n");
-    show_result_for_simpson(function_of_assignment_11, 0.0f, 1.0f);
+    show_result_for_simpson_3_8(function_of_assignment_11, 0.0f, 1.0f);
 
     return 0;
 }
