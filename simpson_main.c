@@ -33,7 +33,7 @@ float function_of_assignment_11(float x) {
     return function_of_assignment_7(x);
 }
 
-void show_result_for(float (*func_ptr)(float), float a, float b) {
+void show_result_for_simpson(float (*func_ptr)(float), float a, float b) {
     for (int i = 0; i < NUMBER_OF_PARTITIONS; i++) {
         int n = PARTITIONS[i];
 
@@ -54,19 +54,19 @@ void show_result_for(float (*func_ptr)(float), float a, float b) {
 int main() {
     printf("========== 3. Assignment ==========\n");
     printf("(2)\n");
-    show_result_for(function_of_assignment_2, 0.0f, 2.0f);
+    show_result_for_simpson(function_of_assignment_2, 0.0f, 2.0f);
 
     printf("\n");
     printf("(7)\n");
-    show_result_for(function_of_assignment_7, 0.0f, 1.0f);
+    show_result_for_simpson(function_of_assignment_7, 0.0f, 1.0f);
 
     printf("\n");
     printf("(10)\n");
-    show_result_for(function_of_assignment_10, 0.0f, 2.0f);
+    show_result_for_simpson(function_of_assignment_10, 0.0f, 2.0f);
 
     printf("\n");
     printf("(11)\n");
-    show_result_for(function_of_assignment_11, 0.0f, 1.0f);
+    show_result_for_simpson(function_of_assignment_11, 0.0f, 1.0f);
 
     return 0;
 }
